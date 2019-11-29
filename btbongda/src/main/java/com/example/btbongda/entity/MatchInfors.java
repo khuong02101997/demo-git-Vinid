@@ -7,10 +7,10 @@ import javax.persistence.*;
 public class MatchInfors {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private int id;
+    private Long id;
 
     @Column(name = "name_teama")
-    private String namTeamA;
+    private String nameTeamA;
 
     @Column(name = "name_teamb")
     private String nameTeamB;
@@ -21,27 +21,27 @@ public class MatchInfors {
     public MatchInfors() {
     }
 
-    public MatchInfors(int id, String namTeamA, String nameTeamB, String infors) {
+    public MatchInfors(Long id, String nameTeamA, String nameTeamB, String infors) {
         this.id = id;
-        this.namTeamA = namTeamA;
+        this.nameTeamA = nameTeamA;
         this.nameTeamB = nameTeamB;
         this.infors = infors;
     }
 
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
-    public String getNamTeamA() {
-        return namTeamA;
+    public String getNameTeamA() {
+        return nameTeamA;
     }
 
-    public void setNamTeamA(String namTeamA) {
-        this.namTeamA = namTeamA;
+    public void setNameTeamA(String nameTeamA) {
+        this.nameTeamA = nameTeamA;
     }
 
     public String getNameTeamB() {
@@ -59,5 +59,4 @@ public class MatchInfors {
     public void setInfors(String infors) {
         this.infors = infors;
     }
-
 }

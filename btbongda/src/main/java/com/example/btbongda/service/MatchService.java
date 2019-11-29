@@ -27,16 +27,16 @@ public class MatchService {
         List<MatchInfors> matchInfors = matchRepository.findAll();
         return matchInfors;
     }
-    public Optional<MatchInfors> getMatchId(int id){
+    public Optional<MatchInfors> getMatchId(Long id){
         Optional<MatchInfors> matchInfors = matchRepository.findById(id);
         return matchInfors;
     }
-    public MatchInfors updateMatchs(MatchInfors model, int id){
+    public MatchInfors updateMatchs(MatchInfors model, Long id){
         model.setId(id);
         return matchRepository.save(model);
     }
-    public void deleteMatchs(int[] ids){
-        for (int item: ids){
+    public void deleteMatchs(Long[] ids){
+        for (Long item: ids){
             matchRepository.deleteById(item);
         }
     }

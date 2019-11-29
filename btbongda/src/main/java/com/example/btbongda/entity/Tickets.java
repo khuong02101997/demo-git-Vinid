@@ -8,19 +8,16 @@ import java.util.List;
 public class Tickets {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private int id;
+    private Long id;
 
     @Column(name = "match_id")
-    private String matchId;
-
-    @Column(name = "name_ticket")
-    private String nameTicket;
+    private Long matchId;
 
     @Column(name = "number_seat")
     private String numberSeat;
 
     @Column
-    private int price;
+    private Integer price;
 
     @Column(name = "match_name")
     private String matchName;
@@ -33,11 +30,13 @@ public class Tickets {
 
     @Column
     private String qr;
+    public Tickets(){
 
-    public Tickets(int id, String matchId, String nameTicket, String numberSeat, int price, String matchName, String time, String stadiumName, String qr) {
+    }
+
+    public Tickets(Long id, Long matchId, String numberSeat, Integer price, String matchName, String time, String stadiumName, String qr) {
         this.id = id;
         this.matchId = matchId;
-        this.nameTicket = nameTicket;
         this.numberSeat = numberSeat;
         this.price = price;
         this.matchName = matchName;
@@ -46,28 +45,20 @@ public class Tickets {
         this.qr = qr;
     }
 
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
-    public String getMatchId() {
+    public Long getMatchId() {
         return matchId;
     }
 
-    public void setMatchId(String matchId) {
+    public void setMatchId(Long matchId) {
         this.matchId = matchId;
-    }
-
-    public String getNameTicket() {
-        return nameTicket;
-    }
-
-    public void setNameTicket(String nameTicket) {
-        this.nameTicket = nameTicket;
     }
 
     public String getNumberSeat() {
@@ -78,11 +69,11 @@ public class Tickets {
         this.numberSeat = numberSeat;
     }
 
-    public int getPrice() {
+    public Integer getPrice() {
         return price;
     }
 
-    public void setPrice(int price) {
+    public void setPrice(Integer price) {
         this.price = price;
     }
 

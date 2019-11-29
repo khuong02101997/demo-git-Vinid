@@ -9,14 +9,14 @@ public class BookTickets {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private int id;
+    private Long id;
 
 
     @Column(name = "user_id")
-    private int user_id;
+    private Integer user_id;
 
     @Column(name = "tickets_id")
-    private String ticketsId;
+    private Long ticketsId;
 
 
     @Column(name = "name_ticket")
@@ -24,8 +24,11 @@ public class BookTickets {
 
     @Column
     private int number;
+    public BookTickets(){
 
-    public BookTickets(int id, int user_id, String ticketsId, String nameTicket, int number) {
+    }
+
+    public BookTickets(Long id, Integer user_id, Long ticketsId, String nameTicket, int number) {
         this.id = id;
         this.user_id = user_id;
         this.ticketsId = ticketsId;
@@ -33,27 +36,27 @@ public class BookTickets {
         this.number = number;
     }
 
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
-    public int getUser_id() {
+    public Integer getUser_id() {
         return user_id;
     }
 
-    public void setUser_id(int user_id) {
+    public void setUser_id(Integer user_id) {
         this.user_id = user_id;
     }
 
-    public String getTicketsId() {
+    public Long getTicketsId() {
         return ticketsId;
     }
 
-    public void setTicketsId(String ticketsId) {
+    public void setTicketsId(Long ticketsId) {
         this.ticketsId = ticketsId;
     }
 
@@ -72,6 +75,4 @@ public class BookTickets {
     public void setNumber(int number) {
         this.number = number;
     }
-
-
 }

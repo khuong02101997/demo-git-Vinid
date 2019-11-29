@@ -1,8 +1,5 @@
 package com.example.btbongda.entity;
 
-
-import sun.plugin.util.UserProfile;
-
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 
@@ -12,11 +9,7 @@ public class Users {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private int id;
-
-    @NotNull
-    @Column(name = "book_id")
-    private int bookId;
+    private Long id;
 
     @NotNull
     @Column(name = "username", length = 100)
@@ -34,29 +27,20 @@ public class Users {
     public Users() {
     }
 
-    public Users(int id, int bookId, @NotNull String userName, String password, String email, boolean ad) {
+    public Users(Long id, @NotNull String userName, String password, String email, boolean ad) {
         this.id = id;
-        this.bookId = bookId;
         this.userName = userName;
         this.password = password;
         this.email = email;
         this.ad = ad;
     }
 
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
-    }
-
-    public int getBookId() {
-        return bookId;
-    }
-
-    public void setBookId(int bookId) {
-        this.bookId = bookId;
     }
 
     public String getUserName() {
