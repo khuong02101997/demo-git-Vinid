@@ -18,10 +18,10 @@ public class Users {
     @Column(name = "password", nullable = false)
     private String password;
 
-    @Column
+    @Column(name = "email")
     private String email;
 
-    @Column
+    @Column(name = "ad")
     private boolean ad;
 
     public Users() {

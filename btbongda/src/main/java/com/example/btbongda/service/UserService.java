@@ -41,15 +41,11 @@ public class UserService {
         Optional<Users> users = userRepository.findById(id);
         return users;
     }
+
     public Users repairUser(Users model,Long id){
         model.setId(id);
         return userRepository.save(model);
     }
-//    public void deleteUsers(Integer[] ids){
-//        for (Integer item: ids){
-//            userRepository.deleteById(item);
-//        }
-//    }
     public ResponseEntity<?> deleteUser(Users model, Long id){
         model.setId(id);
         try{
@@ -59,4 +55,5 @@ public class UserService {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Da co loi xay ra");
         }
     }
+
 }
