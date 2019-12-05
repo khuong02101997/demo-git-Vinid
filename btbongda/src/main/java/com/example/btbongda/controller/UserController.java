@@ -1,8 +1,6 @@
 package com.example.btbongda.controller;
 
-import com.example.btbongda.entity.MatchInfors;
 import com.example.btbongda.entity.Users;
-import com.example.btbongda.service.MatchService;
 import com.example.btbongda.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -20,7 +18,7 @@ public class UserController {
 
 
 
-    @PostMapping("/users")
+    @PostMapping("/createusers")
     public ResponseEntity<?> createUser(@RequestBody Users users){
         return userService.createUser(users);
     }
@@ -30,25 +28,25 @@ public class UserController {
         return userService.getUserPage();
     }
 
-    @GetMapping("/users")
-    public List<Users> getUser(){
-        return userService.getUser();
-    }
+//    @GetMapping("/users")
+//    public List<Users> getUser(@PathVariable Long id){
+//        return userService.getUser(id);
+//    }
 
-    @GetMapping("/users/{id}")
+    @GetMapping("/getusers/{id}")
     public Optional<Users> findUserId(@PathVariable Long id){
         return userService.getUserId(id);
     }
 
 
 
-    @PutMapping("/users/{id}")
+    @PutMapping("/updateusers/{id}")
     public Users repairUser(@RequestBody Users model, @PathVariable("id") Long id){
         return userService.repairUser(model, id);
     }
 
 
-    @DeleteMapping("/users")
+    @DeleteMapping("/deleteusers")
     public void deleteUsers(@RequestBody Users model, Long id){
         userService.deleteUser(model,id);
     }

@@ -1,37 +1,20 @@
-package com.example.btbongda.entity;
+package com.example.btbongda.DTO;
 
-import javax.persistence.*;
-import javax.validation.constraints.NotNull;
-
-@Entity
-@Table(name= "users")
-public class Users {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-
-    @NotNull
-    @Column(name = "username")
+public class UserDTO {
+    private int id;
     private String userName;
-
-    @Column(name = "password")
     private String password;
-
-    @Column(name = "email")
     private String email;
 
-    @Column(name = "ad")
-    private int ad;
+    public UserDTO(){
 
-    public Users() {
     }
 
-    public Long getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(int id) {
         this.id = id;
     }
 
@@ -59,19 +42,10 @@ public class Users {
         this.email = email;
     }
 
-    public int getAd() {
-        return ad;
-    }
-
-    public void setAd(int ad) {
-        this.ad = ad;
-    }
-
-    public Users(Long id, @NotNull String userName, String password, String email, int ad) {
+    public UserDTO(int id, String userName, String password, String email) {
         this.id = id;
         this.userName = userName;
         this.password = password;
         this.email = email;
-        this.ad = ad;
     }
 }
