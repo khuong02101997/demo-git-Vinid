@@ -7,7 +7,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
+
 import java.util.Optional;
 
 
@@ -18,7 +18,7 @@ public class UserController {
 
 
 
-    @PostMapping("/createusers")
+    @PostMapping("/create")
     public ResponseEntity<?> createUser(@RequestBody Users users){
         return userService.createUser(users);
     }
@@ -28,16 +28,15 @@ public class UserController {
         return userService.getUserPage();
     }
 
-//    @GetMapping("/users")
-//    public List<Users> getUser(@PathVariable Long id){
-//        return userService.getUser(id);
-//    }
 
-    @GetMapping("/getusers/{id}")
+    @GetMapping("/users/{id}")
     public Optional<Users> findUserId(@PathVariable Long id){
         return userService.getUserId(id);
     }
-
+    @GetMapping("/user/{email}")
+    public Optional<Users> findEmail(@PathVariable String email){
+        return userService.getEmail(email);
+    }
 
 
     @PutMapping("/updateusers/{id}")

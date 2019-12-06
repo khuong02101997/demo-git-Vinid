@@ -12,12 +12,11 @@ public class BookTickets {
     private Long id;
 
 
-    @Column(name = "user_id")
-    private Integer user_id;
-
     @Column(name = "tickets_id")
     private Long ticketsId;
 
+    @Column(name = "user_id")
+    private Long user_id;
 
     @Column(name = "name_ticket")
     private String nameTicket;
@@ -28,7 +27,7 @@ public class BookTickets {
 
     }
 
-    public BookTickets(Long id, Integer user_id, Long ticketsId, String nameTicket, int number) {
+    public BookTickets(Long id, Long user_id, Long ticketsId, String nameTicket, int number) {
         this.id = id;
         this.user_id = user_id;
         this.ticketsId = ticketsId;
@@ -44,17 +43,14 @@ public class BookTickets {
         this.id = id;
     }
 
-    public Integer getUser_id() {
+    public Long getUser_id() {
         return user_id;
     }
 
-    public void setUser_id(Integer user_id) {
+    public void setUser_id(Long user_id) {
         this.user_id = user_id;
     }
 
-    public Long getTicketsId() {
-        return ticketsId;
-    }
 
     public void setTicketsId(Long ticketsId) {
         this.ticketsId = ticketsId;
