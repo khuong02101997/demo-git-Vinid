@@ -26,6 +26,10 @@ public class BookTicketService {
         List<BookTickets> bookTickets = bookTicketRepostory.findAll();
         return bookTickets;
     }
+    public List<BookTickets> getBooksStC(){
+        List<BookTickets> bookTickets = bookTicketRepostory.getBooksStC();
+        return bookTickets;
+    }
     public Optional<BookTickets> getBookTicketId(long id){
         Optional<BookTickets> bookTickets = bookTicketRepostory.findById(id);
         return bookTickets;

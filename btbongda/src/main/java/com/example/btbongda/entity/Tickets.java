@@ -1,6 +1,7 @@
 package com.example.btbongda.entity;
 
 import javax.persistence.*;
+import java.util.Date;
 import java.util.List;
 
 @Entity
@@ -22,27 +23,21 @@ public class Tickets {
     @Column(name = "match_name")
     private String matchName;
 
-    @Column
-    private String time;
+    @Column(name = "time_start")
+    private Date timeStart;
+
+    @Column(name = "time_end")
+    private Date timeEnd;
 
     @Column(name = "stadium_name")
     private String stadiumName;
 
+    @Column(name = "ticket_status")
+    private String ticketStatus;
     @Column
     private String qr;
     public Tickets(){
 
-    }
-
-    public Tickets(Long id, Long matchId, String numberSeat, Integer price, String matchName, String time, String stadiumName, String qr) {
-        this.id = id;
-        this.matchId = matchId;
-        this.numberSeat = numberSeat;
-        this.price = price;
-        this.matchName = matchName;
-        this.time = time;
-        this.stadiumName = stadiumName;
-        this.qr = qr;
     }
 
     public Long getId() {
@@ -85,12 +80,20 @@ public class Tickets {
         this.matchName = matchName;
     }
 
-    public String getTime() {
-        return time;
+    public Date getTimeStart() {
+        return timeStart;
     }
 
-    public void setTime(String time) {
-        this.time = time;
+    public void setTimeStart(Date timeStart) {
+        this.timeStart = timeStart;
+    }
+
+    public Date getTimeEnd() {
+        return timeEnd;
+    }
+
+    public void setTimeEnd(Date timeEnd) {
+        this.timeEnd = timeEnd;
     }
 
     public String getStadiumName() {
@@ -101,11 +104,32 @@ public class Tickets {
         this.stadiumName = stadiumName;
     }
 
+    public String getTicketStatus() {
+        return ticketStatus;
+    }
+
+    public void setTicketStatus(String ticketStatus) {
+        this.ticketStatus = ticketStatus;
+    }
+
     public String getQr() {
         return qr;
     }
 
     public void setQr(String qr) {
+        this.qr = qr;
+    }
+
+    public Tickets(Long id, Long matchId, String numberSeat, Integer price, String matchName, Date timeStart, Date timeEnd, String stadiumName, String ticketStatus, String qr) {
+        this.id = id;
+        this.matchId = matchId;
+        this.numberSeat = numberSeat;
+        this.price = price;
+        this.matchName = matchName;
+        this.timeStart = timeStart;
+        this.timeEnd = timeEnd;
+        this.stadiumName = stadiumName;
+        this.ticketStatus = ticketStatus;
         this.qr = qr;
     }
 }

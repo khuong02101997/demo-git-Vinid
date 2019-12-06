@@ -19,4 +19,6 @@ public interface UserRepository extends JpaRepository<Users, Long> {
 
     @Query(nativeQuery = true,value ="SELECT * FROM users WHERE username = :name" )
     Users getOneByUserName(@Param("name") String name);
+    @Query(nativeQuery = true, value = "INSERT INTO `bong`.`users` (`ad`, `email`, `password`, `username`) VALUES ('?1', '?2', '?3', '?4')")
+    Users createUser(@Param("ad,email,password,username") int ad, String email, String password, String username );
 }

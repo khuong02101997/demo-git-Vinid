@@ -25,6 +25,11 @@ public class BookTicketController {
         return bookTicketService.getBookTickets();
     }
 
+    @GetMapping("/bookStc")
+    public List<BookTickets> getBookStC(){
+        return bookTicketService.getBooksStC();
+    }
+
     @GetMapping("/booktickets/{id}")
     public Optional<BookTickets> findBookTicketsId(@PathVariable Long id){
         return bookTicketService.getBookTicketId(id);

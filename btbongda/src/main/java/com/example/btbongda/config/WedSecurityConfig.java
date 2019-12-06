@@ -30,7 +30,8 @@ public class WedSecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests()
-                .antMatchers("/create").permitAll()
+                .antMatchers(HttpMethod.POST,"/create").permitAll()
+                .antMatchers(HttpMethod.GET,"/page").permitAll()
                 .anyRequest().authenticated()
                 .and()
                 .formLogin().

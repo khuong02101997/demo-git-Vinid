@@ -21,18 +21,11 @@ public class BookTickets {
     @Column(name = "name_ticket")
     private String nameTicket;
 
-    @Column
-    private int number;
+    @Column (name = "book_status")
+    private String bookStatus;
+
     public BookTickets(){
 
-    }
-
-    public BookTickets(Long id, Long user_id, Long ticketsId, String nameTicket, int number) {
-        this.id = id;
-        this.user_id = user_id;
-        this.ticketsId = ticketsId;
-        this.nameTicket = nameTicket;
-        this.number = number;
     }
 
     public Long getId() {
@@ -43,17 +36,20 @@ public class BookTickets {
         this.id = id;
     }
 
+    public Long getTicketsId() {
+        return ticketsId;
+    }
+
+    public void setTicketsId(Long ticketsId) {
+        this.ticketsId = ticketsId;
+    }
+
     public Long getUser_id() {
         return user_id;
     }
 
     public void setUser_id(Long user_id) {
         this.user_id = user_id;
-    }
-
-
-    public void setTicketsId(Long ticketsId) {
-        this.ticketsId = ticketsId;
     }
 
     public String getNameTicket() {
@@ -64,11 +60,19 @@ public class BookTickets {
         this.nameTicket = nameTicket;
     }
 
-    public int getNumber() {
-        return number;
+    public String getBookStatus() {
+        return bookStatus;
     }
 
-    public void setNumber(int number) {
-        this.number = number;
+    public void setBookStatus(String bookStatus) {
+        this.bookStatus = bookStatus;
+    }
+
+    public BookTickets(Long id, Long ticketsId, Long user_id, String nameTicket, String bookStatus) {
+        this.id = id;
+        this.ticketsId = ticketsId;
+        this.user_id = user_id;
+        this.nameTicket = nameTicket;
+        this.bookStatus = bookStatus;
     }
 }

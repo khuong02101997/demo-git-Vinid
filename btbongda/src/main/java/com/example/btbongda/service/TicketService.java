@@ -22,6 +22,12 @@ public class TicketService {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Da co loi xay ra");
         }
     }
+
+    public List<Tickets> getTicketsSt(){
+        List<Tickets> ticketsSt = ticketRepository.getTicketsStT();
+        return ticketsSt;
+    }
+
     public List<Tickets> getTickets(){
         List<Tickets> tickets = ticketRepository.findAll();
         return tickets;
