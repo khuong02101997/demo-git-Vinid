@@ -1,6 +1,7 @@
 package com.example.btbongda.service;
 
 import com.example.btbongda.entity.Users;
+import com.example.btbongda.model.ResponseData;
 import com.example.btbongda.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -13,22 +14,25 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 
 import java.util.Optional;
 
 @Service
-public class UserService implements UserDetailsService {
+public class UserService {
     @Autowired
     private UserRepository userRepository;
-    public ResponseEntity<?> createUser(Users users){
-        try{
-            Users newUser = userRepository.save(users);
-            return ResponseEntity.ok("Tao User thanh cong");
-        }catch (Exception e){
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Da co loi xay ra");
-        }
+    @Autowired
+    PasswordEncoder passwordEncoder;
+    public ResponseData<?> createUser(Users users){
+//        userRepository.save(users);
+//        if (userRepository.findByEmail(users.getEmail()) != null){
+//            return new ResponseData(HttpStatus.OK,"email da dang ky",0);
+//        }
+        return new ResponseData(HttpStatus.OK,"COn chim nho nho",userRepository.createUser(users.getUsername(), users.getPassword(), users.getEmail(),users.getAd()));
+//        return 1;
     }
 
 
@@ -60,14 +64,5 @@ public class UserService implements UserDetailsService {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Da co loi xay ra");
         }
     }
-    @Override
-    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        Users users = userRepository.getOneByUserName(username);
-        if (users.getUserName().equals(username)) {
-            String password = new BCryptPasswordEncoder().encode(users.getPassword());
-            return User.withUsername(users.getUserName()).password(password).roles("USER").build();
-        } else {
-            throw new UsernameNotFoundException(username);
-        }
-    }
+
 }

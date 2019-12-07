@@ -2,25 +2,25 @@ package com.example.btbongda.controller;
 
 import com.example.btbongda.entity.Users;
 import com.example.btbongda.service.UserService;
+import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 
+import javax.validation.Valid;
 import java.util.Optional;
 
 
 @RestController
 public class UserController {
     @Autowired
-    private UserService userService;
-
-
+    UserService userService;
 
     @PostMapping("/create")
-    public ResponseEntity<?> createUser(@RequestBody Users users){
-        return userService.createUser(users);
+    public ResponseEntity<?> createUser(@Valid @RequestBody Users users){
+        return ResponseEntity.ok(userService.createUser(users));
     }
 
     @GetMapping("/page")
