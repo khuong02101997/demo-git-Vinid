@@ -22,7 +22,7 @@ public class Users {
     private String email;
 
     @Column(name = "ad")
-    private int ad;
+    private String ad;
 
     public Users() {
     }
@@ -59,15 +59,15 @@ public class Users {
         this.email = email;
     }
 
-    public int getAd() {
+    public String getAd() {
         return ad;
     }
 
-    public void setAd(int ad) {
+    public void setAd(String ad) {
         this.ad = ad;
     }
 
-    public Users(Long id, @NotNull String username, String password, String email, int ad) {
+    public Users(Long id, @NotNull String username, String password, String email, String ad) {
         this.id = id;
         this.username = username;
         this.password = password;

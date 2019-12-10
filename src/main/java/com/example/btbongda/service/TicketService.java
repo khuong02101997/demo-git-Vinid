@@ -1,6 +1,7 @@
 package com.example.btbongda.service;
 
 import com.example.btbongda.entity.Tickets;
+import com.example.btbongda.model.ResponseData;
 import com.example.btbongda.repository.TicketRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -28,9 +29,8 @@ public class TicketService {
         return ticketsSt;
     }
 
-    public List<Tickets> getTickets(){
-        List<Tickets> tickets = ticketRepository.findAll();
-        return tickets;
+    public ResponseData<Tickets> getTickets(){
+        return new ResponseData(HttpStatus.OK,1,ticketRepository.findAll());
     }
     public Optional<Tickets> getTicketId(Long id){
         Optional<Tickets> tickets = ticketRepository.findById(id);

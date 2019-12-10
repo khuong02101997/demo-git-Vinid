@@ -1,8 +1,11 @@
 package com.example.btbongda;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import springfox.documentation.builders.RequestHandlerSelectors;
 import springfox.documentation.spi.DocumentationType;
 import springfox.documentation.spring.web.plugins.Docket;
@@ -11,6 +14,8 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 @EnableSwagger2
 @SpringBootApplication
 public class BtbongdaApplication {
+//	@Autowired
+//	PasswordEncoder passwordEncoder;
 
 	public static void main(String[] args) {
 		SpringApplication.run(BtbongdaApplication.class, args);
@@ -22,4 +27,8 @@ public class BtbongdaApplication {
 				.apis(RequestHandlerSelectors.basePackage("com.example.btbongda")).build();
 	}
 
+//	@Override
+//	public void run(String... args) throws Exception {
+//		System.out.println(passwordEncoder.encode("123"));
+//	}
 }

@@ -1,6 +1,7 @@
 package com.example.btbongda.controller;
 
 import com.example.btbongda.entity.Users;
+import com.example.btbongda.model.ResponseData;
 import com.example.btbongda.service.UserService;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,10 +11,12 @@ import org.springframework.web.bind.annotation.*;
 
 
 import javax.validation.Valid;
+import java.util.HashMap;
 import java.util.Optional;
 
 
 @RestController
+//@RequestMapping("/user")
 public class UserController {
     @Autowired
     UserService userService;
@@ -28,9 +31,13 @@ public class UserController {
         return userService.getUserPage();
     }
 
+    @GetMapping("/getUsers")
+    public ResponseData<?> getUsers(){
+        return userService.getUsers();
+    }
 
     @GetMapping("/users/{id}")
-    public Optional<Users> findUserId(@PathVariable Long id){
+    public Users findUserId(@PathVariable Long id){
         return userService.getUserId(id);
     }
     @GetMapping("/user/{email}")
@@ -48,6 +55,12 @@ public class UserController {
     @DeleteMapping("/deleteusers")
     public void deleteUsers(@RequestBody Users model, Long id){
         userService.deleteUser(model,id);
+    }
+
+//    @ApiOperation(value = "Đăng nhập - Get token login")
+    @PostMapping("/login")
+    public ResponseEntity<?> loginUser(@Valid @RequestBody HashMap<String, String> request){
+        return ResponseEntity.ok(userService.loginUser(request.get("username"), request.get("password")));
     }
 
 }

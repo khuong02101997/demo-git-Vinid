@@ -9,4 +9,6 @@ import java.util.List;
 public interface BookTicketRepostory extends JpaRepository<BookTickets, Long> {
     @Query(nativeQuery = true,value ="SELECT * FROM book_tickets where book_status = 'chua xem'" )
     List<BookTickets> getBooksStC();
+
+    List<BookTickets> getByBookStatus(String status);
 }

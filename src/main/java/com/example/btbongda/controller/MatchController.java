@@ -1,6 +1,7 @@
 package com.example.btbongda.controller;
 
 import com.example.btbongda.entity.MatchInfors;
+import com.example.btbongda.model.ResponseData;
 import com.example.btbongda.service.MatchService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -21,7 +22,7 @@ public class MatchController {
     }
 
     @GetMapping("/matchs")
-    public List<MatchInfors> getMatchs(){
+    public ResponseData<MatchInfors> getMatchs(){
         return matchService.getMatchs();
     }
 

@@ -4,13 +4,13 @@ import org.springframework.http.HttpStatus;
 
 public class ResponseData<T> {
     private HttpStatus status;
-    private String msg;
+    private int msg;
     private T data;
 
     public ResponseData() {
     }
 
-    public ResponseData(HttpStatus status, String msg, T data) {
+    public ResponseData(HttpStatus status, int msg, T data) {
         this.status = status;
         this.msg = msg;
         this.data = data;
@@ -24,11 +24,11 @@ public class ResponseData<T> {
         this.status = status;
     }
 
-    public String getMsg() {
+    public int getMsg() {
         return msg;
     }
 
-    public void setMsg(String msg) {
+    public void setMsg(int msg) {
         this.msg = msg;
     }
 

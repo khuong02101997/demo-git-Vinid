@@ -1,6 +1,7 @@
 package com.example.btbongda.controller;
 
 import com.example.btbongda.entity.Tickets;
+import com.example.btbongda.model.ResponseData;
 import com.example.btbongda.service.TicketService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -14,20 +15,20 @@ public class TicketController {
     @Autowired
     private TicketService ticketService;
 
-    @PostMapping("/tickets")
+    @PostMapping("/ticketsp")
     public ResponseEntity<?> createTickets(@RequestBody Tickets tickets){
         return ticketService.createTicket(tickets);
     }
 
-    @GetMapping("/ticketsT")
-    public List<Tickets> getTicketT(){
-        return ticketService.getTicketsSt();
-    }
-
     @GetMapping("/tickets")
-    public List<Tickets> getTicket(){
+    public ResponseData<?> getTicketT(){
         return ticketService.getTickets();
     }
+
+//    @GetMapping("/tickets")
+//    public List<Tickets> getTicket(){
+//        return ticketService.getTickets();
+//    }
 
 
     @GetMapping("/tickets/{id}")

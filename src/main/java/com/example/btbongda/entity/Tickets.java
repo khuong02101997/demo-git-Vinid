@@ -20,22 +20,12 @@ public class Tickets {
     @Column
     private Integer price;
 
-    @Column(name = "match_name")
-    private String matchName;
-
-    @Column(name = "time_start")
-    private Date timeStart;
-
-    @Column(name = "time_end")
-    private Date timeEnd;
-
-    @Column(name = "stadium_name")
-    private String stadiumName;
-
     @Column(name = "ticket_status")
     private String ticketStatus;
+
     @Column
     private String qr;
+
     public Tickets(){
 
     }
@@ -72,37 +62,6 @@ public class Tickets {
         this.price = price;
     }
 
-    public String getMatchName() {
-        return matchName;
-    }
-
-    public void setMatchName(String matchName) {
-        this.matchName = matchName;
-    }
-
-    public Date getTimeStart() {
-        return timeStart;
-    }
-
-    public void setTimeStart(Date timeStart) {
-        this.timeStart = timeStart;
-    }
-
-    public Date getTimeEnd() {
-        return timeEnd;
-    }
-
-    public void setTimeEnd(Date timeEnd) {
-        this.timeEnd = timeEnd;
-    }
-
-    public String getStadiumName() {
-        return stadiumName;
-    }
-
-    public void setStadiumName(String stadiumName) {
-        this.stadiumName = stadiumName;
-    }
 
     public String getTicketStatus() {
         return ticketStatus;
@@ -120,15 +79,11 @@ public class Tickets {
         this.qr = qr;
     }
 
-    public Tickets(Long id, Long matchId, String numberSeat, Integer price, String matchName, Date timeStart, Date timeEnd, String stadiumName, String ticketStatus, String qr) {
+    public Tickets(Long id, Long matchId, String numberSeat, Integer price , String ticketStatus, String qr) {
         this.id = id;
         this.matchId = matchId;
         this.numberSeat = numberSeat;
         this.price = price;
-        this.matchName = matchName;
-        this.timeStart = timeStart;
-        this.timeEnd = timeEnd;
-        this.stadiumName = stadiumName;
         this.ticketStatus = ticketStatus;
         this.qr = qr;
     }

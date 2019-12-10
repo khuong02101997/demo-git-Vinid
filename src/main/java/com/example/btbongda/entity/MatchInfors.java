@@ -1,6 +1,7 @@
 package com.example.btbongda.entity;
 
 import javax.persistence.*;
+import java.util.Date;
 
 @Entity
 @Table(name = "match_infors")
@@ -9,23 +10,17 @@ public class MatchInfors {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "name_teama")
-    private String nameTeamA;
+    @Column(name = "match_name")
+    private String matchName;
 
-    @Column(name = "name_teamb")
-    private String nameTeamB;
+    @Column(name = "stadium_name")
+    private String stadiumName;
 
-    @Column(name = "infors")
-    private String infors;
+    @Column(name = "match_time")
+    private String matchTime;
+
 
     public MatchInfors() {
-    }
-
-    public MatchInfors(Long id, String nameTeamA, String nameTeamB, String infors) {
-        this.id = id;
-        this.nameTeamA = nameTeamA;
-        this.nameTeamB = nameTeamB;
-        this.infors = infors;
     }
 
     public Long getId() {
@@ -36,27 +31,34 @@ public class MatchInfors {
         this.id = id;
     }
 
-    public String getNameTeamA() {
-        return nameTeamA;
+    public String getMatchName() {
+        return matchName;
     }
 
-    public void setNameTeamA(String nameTeamA) {
-        this.nameTeamA = nameTeamA;
+    public void setMatchName(String matchName) {
+        this.matchName = matchName;
     }
 
-    public String getNameTeamB() {
-        return nameTeamB;
+    public String getStadiumName() {
+        return stadiumName;
     }
 
-    public void setNameTeamB(String nameTeamB) {
-        this.nameTeamB = nameTeamB;
+    public void setStadiumName(String stadiumName) {
+        this.stadiumName = stadiumName;
     }
 
-    public String getInfors() {
-        return infors;
+    public String getMatchTime() {
+        return matchTime;
     }
 
-    public void setInfors(String infors) {
-        this.infors = infors;
+    public void setMatchTime(String matchTime) {
+        this.matchTime = matchTime;
+    }
+
+    public MatchInfors(Long id, String matchName, String stadiumName, String matchTime) {
+        this.id = id;
+        this.matchName = matchName;
+        this.stadiumName = stadiumName;
+        this.matchTime = matchTime;
     }
 }

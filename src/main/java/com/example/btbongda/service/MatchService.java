@@ -1,6 +1,7 @@
 package com.example.btbongda.service;
 
 import com.example.btbongda.entity.MatchInfors;
+import com.example.btbongda.model.ResponseData;
 import com.example.btbongda.repository.MatchRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -22,9 +23,9 @@ public class MatchService {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Da co loi xay ra");
         }
     }
-    public List<MatchInfors> getMatchs(){
-        List<MatchInfors> matchInfors = matchRepository.findAll();
-        return matchInfors;
+    public ResponseData<MatchInfors> getMatchs(){
+       return new ResponseData(HttpStatus.OK, 1, matchRepository.findAll());
+
     }
     public Optional<MatchInfors> getMatchId(Long id){
         Optional<MatchInfors> matchInfors = matchRepository.findById(id);
